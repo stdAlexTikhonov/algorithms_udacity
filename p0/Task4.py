@@ -25,24 +25,20 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-sending_texts = []
-receiving_texts = []
-receiving_calls = []
-hash = {}
+outgoing = set()
+non_tele = set()
+
+for call in calls:
+    outgoing.add(call[0])
+    non_tele.add(call[1])
+
 
 for text in texts:
-    sending_texts.append(text[0])
-    receiving_texts.append(text[1])
+    non_tele.add(text[0])
+    non_tele.add(text[1])
 
-for call in calls:
-    receiving_calls.append(call[1])
-
-for call in calls:
-    if call[0] not in sending_texts and call[0] not in receiving_texts and call[0] not in receiving_calls:
-        hash[call[0]] = ''
-
-telemarketers = sorted(hash.keys())
+tele_mks = outgoing.difference(non_tele)
 
 print("These numbers could be telemarketers: ")
-for telemarketer in telemarketers:
-    print(telemarketer)
+for tele in sorted(tele_mks):
+    print(tele)
