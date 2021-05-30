@@ -23,22 +23,11 @@ hash = {}
 
 
 for row in calls:
-    if row[0] in hash.keys():
-        hash[row[0]] += int(row[3])
-    else:
-        hash[row[0]] = int(row[3])
-
-    if row[1] in hash.keys():
-        hash[row[1]] += int(row[3])
-    else:
-        hash[row[1]] = int(row[3])
+    hash[row[0]] = hash.get(row[0], 0) + int(row[3])
+    hash[row[1]] = hash.get(row[1], 0) + int(row[3])
     
-longest = 0
-leader = ''
-for key, value in hash.items():
-    if value > longest:
-        longest = value
-        leader = key
+leader = max(hash, key = lambda k: hash[k])
+longest = hash[leader]
 
 
 print(str(leader) + " spent the longest time, " + str(longest) + " seconds, on the phone during September 2016.")
