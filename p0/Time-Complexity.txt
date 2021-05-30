@@ -4,19 +4,17 @@ in terms on lines of code: O(10)
 
 Task1
 We have two loops in each of them some instractions with input, but approximation is: O(n)
-in terms on lines of code: O(10n + 9)
+
 
 Task2
 We have to iterate over calls to combine calls in hash with call duration's, and then itarate over that hash, it is linear dependence: O(n)
-in terms on lines of code: O(11n + 11)
 
 Task3
-Complexity: O(n)
-in terms on lines of code: O(12n + 2m + 12) where m - codes from hash
+Complexity: O(n log n), because of "sotred"
+
 
 Task4
-Complexity: O(n)
-in terms on lines of code: O(3n + 5m + 2k + 13) where n - texts, m - calls, k - telemarketers
+Complexity: O(n log n) - sorted
 
 
 
