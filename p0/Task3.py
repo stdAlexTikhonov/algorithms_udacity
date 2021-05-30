@@ -45,15 +45,18 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 hash = {}
+calls_from_080_to_080 = 0
 for row in calls:
   if '(080)' in row[0]:
     code = ''
     if ' ' in row[1]:
-      splited = row[1].split(' ')
-      code = splited[0]
+      code = row[1][0:4]
     elif ')' in row[1]:
       splited = row[1].split(')')
       code = splited[0] + ')'
+
+    if '(080)' in row[1]:
+      calls_from_080_to_080 += 1
 
     if code in hash.keys():
       hash[code] += 1
@@ -66,5 +69,5 @@ print("The numbers called by people in Bangalore have codes:")
 for code in codes:
   print(code)
 
-percentage = round(hash['(080)']/len(calls),2)
+percentage = round(calls_from_080_to_080/hash['(080)'] * 100,2)
 print(str(percentage) + " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
