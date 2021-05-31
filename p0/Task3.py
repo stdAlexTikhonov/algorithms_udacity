@@ -44,10 +44,14 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
-hash = {}
+
 calls_from_080_to_080 = 0
+all_calls_from_080 = 0
+calls_from_080 = set()
+
 for row in calls:
-  if '(080)' in row[0]:
+  if row[0].startswith('(080)'):
+    all_calls_from_080 += 1
     code = ''
     if ' ' in row[1]:
       code = row[1][0:4]
@@ -55,19 +59,16 @@ for row in calls:
       splited = row[1].split(')')
       code = splited[0] + ')'
 
-    if '(080)' in row[1]:
+    if row[1].startswith('(080)'):
       calls_from_080_to_080 += 1
 
-    if code in hash.keys():
-      hash[code] += 1
-    else:
-      hash[code] = 1
+    calls_from_080.add(code)
   
-codes = sorted(hash.keys())
+codes = sorted(calls_from_080)
 
 print("The numbers called by people in Bangalore have codes:")
 for code in codes:
   print(code)
 
-percentage = round(calls_from_080_to_080/hash['(080)'] * 100,2)
+percentage = round(calls_from_080_to_080/all_calls_from_080 * 100,2)
 print(str(percentage) + " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
