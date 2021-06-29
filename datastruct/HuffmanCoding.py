@@ -9,11 +9,8 @@ class Node:
         self.left = left
         self.right = right
 
- 
-
     def __lt__(self, other):
         return self.value < other.value
-
 
 
 
@@ -48,6 +45,11 @@ class Tree:
             self._insert(node, self.root)
 
     def _insert(self, node, cur_node):
+        if node.value > cur_node.value:
+            save = cur_node.value
+            cur_node.value = node.value
+            node.value = save
+
         if node.value <= cur_node.value:
             if cur_node.left is None:
                 cur_node.left = node
@@ -81,9 +83,11 @@ def huffman_encoding(data):
         f1 = heappop(heap)
         f2 = heappop(heap)
         new_node = Node(f1.value + f2.value, f1.code + f2.code)
+
+        node_copy = Node(f1.value + f2.value, f1.code + f2.code)
         # print('{} + {} = {}'.format(f1.value, f2.value, new_node.value))
         # print('{} + {} = {}'.format(f1.code, f2.code, new_node.code))
-        tree.insert(new_node)
+        tree.insert(node_copy)
         heappush(heap, new_node)
 
     # last_node = heappop(heap)
