@@ -42,27 +42,36 @@ parent.add_group(child2)
 
 
 def is_user_in_group(start, user):
-    result = []
-    if start is None:
-        return None
-    
-    current_path = str(start.name)
+    if user and start:
+        result = []
+        if start is None:
+            return None
+        
+        current_path = str(start.name)
 
-    if len(start.groups) == 0:
-        result.append(current_path)
-        if user in start.get_users():
+        if len(start.groups) == 0:
+            result.append(current_path)
+            if user in start.get_users():
+                return True
+            else:
+                return False
+        elif user in start.get_users():
             return True
         else:
-            return False
-    elif user in start.get_users():
-        return True
+            i = 0
+            len_nodes = len(start.groups)
+            while i < len_nodes:
+                if dfs(start.groups[i], current_path, result, user):
+                    return True
+                i+=1
     else:
-        i = 0
-        len_nodes = len(start.groups)
-        while i < len_nodes:
-            if dfs(start.groups[i], current_path, result, user):
-                return True
-            i+=1
+        if user:
+            return "Group is not specified"
+        elif start:
+            return "User is not specified"
+        else:
+            return "Both user and group are not specified"
+        
 
     return "User '{}' not found".format(user)
 
@@ -86,5 +95,14 @@ def dfs(node, current_path, result, user):
             i+=1
 
 
-check_user = is_user_in_group(parent, 'dada')
-print(check_user)
+#Test
+print(is_user_in_group(parent, 'mama'))
+
+#Test user not found
+print(is_user_in_group(parent, 'dada'))
+
+#Test empty string
+print(is_user_in_group(parent, ''))
+
+#Test empty group
+print(is_user_in_group(None, 'User'))
