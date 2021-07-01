@@ -49,27 +49,34 @@ if __name__ == "__main__":
         return Node(x[1], x[0])
 
     def huffman_encoding(data):
-        frequency = Counter(data)
-        as_list = list(frequency.items())
-        heap = list(map(transform, as_list))
-        heapify(heap)
+        if len(data) > 0:
+            frequency = Counter(data)
+            if len(frequency.keys()) == 1:
+                print("Input string consist of one repetitive character: '{}'".format(list(frequency.keys())[0]))
+                return None
+            as_list = list(frequency.items())
+            heap = list(map(transform, as_list))
+            heapify(heap)
 
-        while len(heap) > 1:
-            f1 = heappop(heap)
-            f2 = heappop(heap)
-            new_node = Node(f1.freq + f2.freq, f1.value + f2.value, f1, f2)
-            heappush(heap, new_node)
+            while len(heap) > 1:
+                f1 = heappop(heap)
+                f2 = heappop(heap)
+                new_node = Node(f1.freq + f2.freq, f1.value + f2.value, f1, f2)
+                heappush(heap, new_node)
 
-        last_node = heappop(heap)
-        getBinaryCode(last_node, '')
+            last_node = heappop(heap)
+            getBinaryCode(last_node, '')
 
-        output = ''
-        tree = Tree(last_node)
+            output = ''
+            tree = Tree(last_node)
 
-        for letter in data:
-            output += str(codes[letter])
+            for letter in data:
+                output += str(codes[letter])
 
-        return output, tree
+            return output, tree
+        else:
+            print("Input string is empty")
+            return None
 
     def huffman_decoding(encoded_data, tree):
         temp = tree.root
@@ -102,3 +109,11 @@ if __name__ == "__main__":
 
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+    #Test empty string
+    empty_string = ""
+    print(huffman_encoding(empty_string))
+
+    #Test repetitive character
+    repetivie_char = "AAAAAAAA"
+    print(huffman_encoding(repetivie_char))
