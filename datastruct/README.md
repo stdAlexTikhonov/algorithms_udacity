@@ -34,8 +34,23 @@
 
     In worst case we will iterate throuth all nodes, and build result arrays (leaf nodes) times
 
-    time: O(n _ log(n))
-    space: O(n _ log(n))
+    Example:
+        g1
+      /  |  \
+    g2   g3  g4
+    /\    |\  \
+
+g5 g6 g7 g8 g9
+
+    incase if we dont have user we should iterate through each group
+
+    result: [[g1, g2, g5], [g1, g2, g6], [g1, g3, g7], [g1, g3, g8],[g1, g4, g9]]
+
+    time: O(n)
+    space: O(n)
+
+    PS. Previous reviewer point that here is O(n) time and space complecity
+    I'm not sure
 
 #Blockchain
 
