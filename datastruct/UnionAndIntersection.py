@@ -42,6 +42,14 @@ class LinkedList:
         return size
 
 def union(llist_1, llist_2):
+    if llist_1.size() == 0 and llist_2.size() == 0:
+        print("Both lists are empty")
+        return None
+    elif llist_1.size() == 0:
+        return llist_2
+    elif llist_2.size() == 0:
+        return llist_1
+    
     visited = set()
     curA, curB = llist_1.head, llist_2.head
     while curA:
@@ -60,6 +68,14 @@ def union(llist_1, llist_2):
     return result_list
 
 def intersection(llist_1, llist_2):
+    if llist_1.size() == 0 and llist_2.size() == 0:
+        print("Both lists are empty")
+        return None
+    elif llist_1.size() == 0:
+        return llist_2
+    elif llist_2.size() == 0:
+        return llist_1
+
     visitedA = set()
     visitedB = set()
     
@@ -115,3 +131,19 @@ for i in element_2:
 
 print (union(linked_list_3,linked_list_4))
 print (intersection(linked_list_3,linked_list_4))
+
+#Test empty list 1
+empty_list = LinkedList()
+empty_list2 = LinkedList()
+
+print (union(empty_list,linked_list_4))
+print (intersection(empty_list,linked_list_4))
+
+#Test emmpty list 2
+
+print (union(linked_list_3,empty_list))
+print (intersection(linked_list_3,empty_list))
+
+#Test both lists empty
+print (union(empty_list,empty_list2))
+print (intersection(empty_list,empty_list2))
