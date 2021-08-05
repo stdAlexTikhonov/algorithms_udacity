@@ -82,4 +82,4 @@ def quick_minmax(arr):
 
 test(tests, quick_minmax)
 
-    
+#To find min max with n log(n) we havte sort array with quick sort and then take first and last elements
