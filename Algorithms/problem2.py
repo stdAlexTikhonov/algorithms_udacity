@@ -7,6 +7,11 @@ def rotated_array_search(input_list, number):
     Returns:
        int: Index or -1
     """
+
+    if len(input_list) == 0:
+        print('Array is empty')
+        return -1
+
     left = 0
     right = len(input_list) - 1
 
@@ -58,6 +63,7 @@ test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[], -1])
 
 # The idea is to find the pivot point, divide the array in two sub-arrays and perform binary search.
 # The main idea for finding pivot is – for a sorted (in increasing order) and pivoted array, pivot element is the only element for which next element to it is smaller than it.
