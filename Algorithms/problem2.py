@@ -64,12 +64,3 @@ test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
 test_function([[], -1])
-
-# The idea is to find the pivot point, divide the array in two sub-arrays and perform binary search.
-# The main idea for finding pivot is – for a sorted (in increasing order) and pivoted array, pivot element is the only element for which next element to it is smaller than it.
-# Using the above statement and binary search pivot can be found.
-# After the pivot is found out divide the array in two sub-arrays.
-# Now the individual sub – arrays are sorted so the element can be searched using Binary Search.
-
-#Time complexity: O(log(n))
-#Space complexity: O(log(n))

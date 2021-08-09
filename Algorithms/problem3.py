@@ -47,12 +47,3 @@ def test_function(test_case, answer):
 test_function([6, 8, 4, 5, 2, 3], [642, 853])
 test_function([9,3,4,7,2,3],[732,943])
 test_function([], -1)
-
-
-#The idea is to use an auxiliary array. 
-# We maintain two pointers one to leftmost or smallest element and other to rightmost or largest element. 
-# #We move both pointers toward each other and alternatively copy elements at these pointers to an auxiliary array. 
-# Finally, we copy the auxiliary array back to the original array.
-
-#Time complexity: O(n*log(n))
-#Space complexity: O(n*log(n))
