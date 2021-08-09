@@ -54,3 +54,5 @@ test_function([], -1)
 # #We move both pointers toward each other and alternatively copy elements at these pointers to an auxiliary array. 
 # Finally, we copy the auxiliary array back to the original array.
 
+#Time complexity: O(n*log(n))
+#Space complexity: O(n*log(n))

@@ -81,3 +81,6 @@ for pref in test_pref:
 # The key character acts as an index into the array children. If the input key is new or an extension of the existing key, we need to construct non-existing nodes of the key, and mark end of the word for the last node.
 # If the input key is a prefix of the existing key in Trie, we simply mark the last node of the key as the end of a word.
 # The key length determines Trie depth. 
+
+#Time complexity: O(log(n))
+#Space complecity: O(log(n))

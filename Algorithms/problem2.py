@@ -70,3 +70,6 @@ test_function([[], -1])
 # Using the above statement and binary search pivot can be found.
 # After the pivot is found out divide the array in two sub-arrays.
 # Now the individual sub – arrays are sorted so the element can be searched using Binary Search.
+
+#Time complexity: O(log(n))
+#Space complexity: O(log(n))

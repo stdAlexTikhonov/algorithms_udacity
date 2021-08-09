@@ -42,3 +42,6 @@ test_function([])
 # If the element is 1 then update mid = mid + 1
 # If the element is 2 then swap the element with the element at index high and update high = high – 1 and update i = i – 1. As the swapped element is not processed
 # Print the output array.
+
+#Time complexity: O(log(n))
+#Space complexity: O(log(n))

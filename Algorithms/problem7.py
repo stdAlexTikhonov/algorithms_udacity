@@ -56,3 +56,5 @@ for word in test_list:
     print(router.find(word))
 
 # same as Trie problem
+#Time complexity: O(log(n))
+#Space Complecity: O(log(n))
