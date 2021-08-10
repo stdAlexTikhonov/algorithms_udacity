@@ -10,10 +10,9 @@
 
 # Insert
 
-Time complexity: O(h) where h is height of the BST
-Space complecity: O(n)
+Time complexity: O(k) where k is key length
+Space complecity: O(k \* ALPHABET_SIZE \* N) where N number of keys in Trie
 
 # Find
 
-Time complexity: O(h) where h is height of the BST
-Space complecity: O(n)
+Time complexity: O(k) where k is key length
