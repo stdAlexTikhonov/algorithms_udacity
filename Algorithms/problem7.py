@@ -50,11 +50,7 @@ router.insert('/about/data', 'about data handler')
 router.insert('/about/data/test', 'about test handler')
 router.insert('/about/data/cupture', 'about cupture handler')
 
-test_list = ['/home', '/about','/about/me','/about/data','/about/data/test','/about/data/cupture']
+test_list = ['/home', '/about','/about/me','/about/data','/about/data/test','/about/data/cupture', '']
 
 for word in test_list:
     print(router.find(word))
-
-# same as Trie problem
-#Time complexity: O(log(n))
-#Space Complecity: O(log(n))
