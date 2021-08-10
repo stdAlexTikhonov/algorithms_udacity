@@ -8,5 +8,12 @@
 
 # The key length determines Trie depth.
 
-Time complexity: O(log(n))
-Space complecity: O(log(n))
+# Insert
+
+Time complexity: O(h) where h is height of the BST
+Space complecity: O(n)
+
+# Find
+
+Time complexity: O(h) where h is height of the BST
+Space complecity: O(n)
