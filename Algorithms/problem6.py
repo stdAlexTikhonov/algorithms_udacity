@@ -81,7 +81,3 @@ def quick_minmax(arr):
     return (sorted_arr[0], sorted_arr[length-1] )
 
 test(tests, quick_minmax)
-
-#To find min max with n log(n) we havte sort array with quick sort and then take first and last elements
-#Time complexity: O(n*log(n))
-#Space complecity: O(log(n))
